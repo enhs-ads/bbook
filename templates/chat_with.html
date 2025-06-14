@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/static/logo.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Chat with {{ other_user }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      const socket = io();
+      const room = ["{{ current_user }}", "{{ other_user }}"].sort().join('_');
+      socket.emit('join_room', { room: room });
+
+      const form = document.querySelector('#msgForm');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const message = form.message.value.trim();
+        if (message === '') return;
+
+        socket.emit('send_private_message', {
+          room: room,
+          username: '{{ current_user }}',
+          receiver: '{{ other_user }}',
+          message: message
+        });
+        form.message.value = '';
+      });
+
+      socket.on('receive_private_message', function (data) {
+        const box = document.querySelector('#messages');
+        const msg = document.createElement('li');
+        msg.className = data.username === '{{ current_user }}' ? 'my-message' : 'other-message';
+        msg.innerHTML = `<strong>${data.username}:</strong> ${data.message}`;
+        box.appendChild(msg);
+        box.scrollTop = box.scrollHeight;
+      });
+    });
+  </script>
+</head>
+<body class="chat-with-page">
+  <div class="chat-with-container">
+    <header class="chat-header">
+      <h2>Chat with {{ other_user }}</h2>
+      <a href="/chat" class="back-link">← Back to chats</a>
+    </header>
+
+    <ul id="messages" class="message-list">
+      {% for msg in messages %}
+        <li class="{{ 'my-message' if msg['sender'] == current_user else 'other-message' }}">
+          <strong>{{ msg['sender'] }}:</strong> {{ msg['message'] }}
+          {% if msg['sender'] == current_user %}
+            <a href="/delete-message/{{ msg['id'] }}" class="delete-link">[Delete]</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <form id="msgForm" class="message-form">
+      <input name="message" placeholder="Type a message..." autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>

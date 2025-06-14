@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+  <meta name="theme-color" content="#0084ff">
+</head>
+<body class="auth-page">
+  <div class="container">
+
+     <button id="install-btn" style="display: none; margin-left: 33%;">Install App</button>
+  <script>
+      let deferredPrompt;
+     window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+       document.getElementById('install-btn').style.display = 'block';
+     });
+     document.getElementById('install-btn').addEventListener('click', () => {
+        deferredPrompt.prompt();
+      });
+     // Register service worker
+     if ('serviceWorker' in navigator) {
+       navigator.serviceWorker.register('/static/sw.js');
+     }
+  </script>
+    <div class="auth-container">
+      <h2 class="auth-title">Login to B-book</h2>
+      <form method="POST" class="auth-form">
+        <input class="auth-input" name="username" placeholder="Username" required>
+        <input class="auth-input" name="password" type="password" placeholder="Password" required>
+        <button class="auth-button" type="submit">Login</button>
+      </form>
+      <p class="auth-link">Don't have an account? <a href="/register">Register here</a></p>
+    </div>
+  </div>
+</body>
+</html>

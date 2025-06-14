@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Users</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style6.css') }}">
+  <link rel="icon" href="/static/logo.png" type="image/png">
+</head>
+<body class="search-page">
+  <div class="search-container">
+    <header class="search-header">
+      <h2>Search Users</h2>
+      <a href="/chat" class="back-link">← Back to chat</a>
+    </header>
+
+    <form method="POST" class="search-form">
+      <input name="query" placeholder="Search for username" autocomplete="off" required>
+      <button type="submit">Search</button>
+    </form>
+
+    {% if users %}
+      <ul class="user-list">
+        {% for user in users %}
+          <li class="user-entry">
+            <img src="{{ url_for('static', filename='profile_pics/' + (user_profiles.get(user['username']) or 'default.png')) }}"
+                 alt="Profile"
+                 width="32" height="32"
+                 style="border-radius: 50%; vertical-align: middle; margin-right: 8px;">
+            <span class="username">{{ user['username'] }}</span>
+            <a href="/chat/{{ user['username'] }}" class="btn btn-message">Message</a>
+            <a href="https://www.facebook.com/" class="btn btn-add">check account on facebook</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No users found. Try searching.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

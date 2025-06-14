@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="/static/logo.png" type="image/png">
+</head>
+<body class="auth-page">
+  <div class="container">
+    <div class="auth-container">
+      <h2 class="auth-title">Create Your Account</h2>
+      <form method="POST" enctype="multipart/form-data" class="auth-form">
+         <input class="auth-input" name="username" placeholder="Username" required>
+         <input class="auth-input" name="password" type="password" placeholder="Password" required>
+        <input class="auth-input" type="file" name="profile_pic" accept="image/*" required>
+        <button class="auth-button" type="submit">Register</button>
+    </form>
+
+      <p class="auth-link">Already have an account? <a href="/login">Login here</a></p>
+    </div>
+  </div>
+</body>
+</html>
