@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, redirect, session, url_for, g
 from flask_socketio import SocketIO, emit, join_room
+import eventlet
+eventlet.monkey_patch()
+
 import sqlite3
 import os
 from werkzeug.utils import secure_filename
