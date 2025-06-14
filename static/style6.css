@@ -1,0 +1,190 @@
+/* General Layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  margin: 0;
+
+}
+
+a {
+  text-decoration: none;
+  color: #0084ff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Centered Page Container */
+.search-container1{
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  
+}
+
+/* Headers */
+h2 {
+  margin-top: 0;
+  color: #2e2e2e;
+}
+
+/* Forms */
+form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input[type="text"],
+input[type="password"],
+input[name="query"],
+input[name="message"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px;
+  background-color: #0b1825;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #21374c;
+}
+
+/* Search Page */
+.search-page {
+  padding: 1rem;
+}
+
+.search-container {
+  max-width: 700px;
+  width: 700px;
+  margin: auto;
+  background: rgb(255, 255, 255);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin: 1rem 0;
+}
+
+.search-form input {
+  flex: 1;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: #f9f9f9;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.btn-message {
+  background-color: #0077cc;
+  color: white;
+  margin-right: 5px;
+}
+
+.btn-add {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Chat Page */
+#messages {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#messages li {
+  padding: 10px;
+  margin: 6px 0;
+  background-color: #e7f3ff;
+  border-radius: 10px;
+}
+
+#messages li strong {
+  color: #0084ff;
+}
+
+form#msgForm {
+  display: flex;
+  gap: 10px;
+}
+
+form#msgForm input[name="message"] {
+  flex: 1;
+}
+
+.delete-link {
+  margin-left: 10px;
+  font-size: 0.9em;
+  color: red;
+}
+
+/* Chat List Page */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 8px 0;
+}
+
+.back-link {
+  font-size: 0.9rem;
+  color: #555;
+}

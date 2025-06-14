@@ -1,0 +1,147 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.chat-with-page {
+  font-family: 'Segoe UI', sans-serif;
+   background: url('/static/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  min-height: 100vh;
+}
+
+.chat-with-container {
+  background: transparent;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgb(0, 0, 0);
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.chat-header h2 {
+  font-size: 1.4rem;
+  color: #fffdfd;
+}
+
+.back-link {
+  font-size: 0.9rem;
+  color: #d8e9f1;
+  text-decoration: none;
+  background: #6d7074;
+  border-radius: 15px;
+}
+
+.back-link:hover {
+  background-color: #b3a9a9;
+}
+
+/* Message list */
+.message-list {
+  list-style: none;
+  overflow-y: auto;
+  max-height: 400px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.message-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 80%;
+  word-wrap: break-word;
+  position: relative;
+}
+
+/* Current user's messages */
+.my-message {
+  background-color: #23242168;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+/* Other user's messages */
+.other-message {
+  background-color: #7b7f87;
+  align-self: flex-start;
+  text-align: left;
+  margin-right: auto;
+}
+
+.delete-link {
+  font-size: 15px;
+  color: #dc3545;
+  margin-left: 10px;
+  text-decoration: none;
+
+}
+
+.delete-link:hover {
+  text-decoration: underline;
+}
+
+/* Message input form */
+.message-form {
+  display: flex;
+  gap: 10px;
+}
+
+.message-form input[name="message"] {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+.message-form button {
+  background-color: #8b868676;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.message-form button:hover {
+  background-color: #5b545400;
+}
+.profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.message-bubble {
+  display: inline-block;
+  max-width: 85%;
+}
+h2 {
+   color: #ccc;
+}
